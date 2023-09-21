@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import HeroSection from '../components/HeroSection.tsx';
+import Subscribe from '../components/Subscribe.astro';
+import Header from '../components/Header.astro';
+import Features from '../components/Features.astro';
+import People from '../components/People.astro';
+import Pricing from '../components/Pricing.astro';
+import Sponsored from '../components/Sponsored.astro';
+import Calendar from '../components/Calendar';
+import Timeline from '../components/Timeline';
+import Footer from '../components/Footer';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<HeroSection client:load/>
+		<Subscribe/>
+		<Features/>
+		<Header/>
+		<Calendar client:load/>
+		<!-- <Timeline client:load/> -->
+		<People/>
+
+
+		<Sponsored/>
+
+		<Footer/>
+	</main>
+</Layout>
