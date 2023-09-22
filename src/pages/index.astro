@@ -11,21 +11,19 @@ import Sponsored from '../components/Sponsored.astro';
 import Calendar from '../components/Calendar';
 import Timeline from '../components/Timeline';
 import Footer from '../components/Footer';
+import Blog from '../components/Blog';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
 		<HeroSection client:load/>
 		<Subscribe/>
-		<Features/>
 		<Header/>
+		<Sponsored/>
+		<Blog/>
 		<Calendar client:load/>
 		<!-- <Timeline client:load/> -->
 		<People/>
-
-
-		<Sponsored/>
-
 		<Footer/>
 	</main>
 </Layout>
