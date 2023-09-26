@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
 import HeroSection from '../components/HeroSection.tsx';
 import Subscribe from '../components/Subscribe.astro';
@@ -10,7 +10,7 @@ import Pricing from '../components/Pricing.astro';
 import Sponsored from '../components/Sponsored.astro';
 import Calendar from '../components/Calendar';
 import Timeline from '../components/Timeline';
-import Footer from '../components/Footer';
+
 import Blog from '../components/Blog';
 ---
 
@@ -22,8 +22,5 @@ import Blog from '../components/Blog';
 		<Sponsored/>
 		<Blog/>
 		<Calendar client:load/>
-		<!-- <Timeline client:load/> -->
-		<People/>
-		<Footer/>
 	</main>
 </Layout>

@@ -1,10 +1,37 @@
 ---
 import { storyblokEditable, renderRichText } from '@storyblok/astro'
 const { blok } = Astro.props
+// const blok = story.content
 const content = renderRichText(blok.content)
+const author = blok.author
+import { Image } from 'astro:assets';
+// console.log(blok.featuredImage.filename)
 ---
-<article {...storyblokEditable(blok)} class="max-w-3xl mx-auto prose">
-  <h1>{blok.title}</h1>
-  <p>{blok.description}</p>
-  <Fragment set:html={content} />
+<article {...storyblokEditable(blok)} class="rounded-lg max-w-4xl mx-auto lg:py-20 sm:py-24 px-8 bg-white z-10">
+  <!-- <h4 class="py-4">{new Date(story.created_at).toLocaleDateString("en-US", {dateStyle: "full"})}</h4> -->
+  <h1 class="text-5xl font-sans font-bold pb-8 text-center">{blok.title}</h1>
+  <Image src={blok.featuredImage.filename+"/m/800x800"} alt="A description of my image" width={700} height={800} class="mx-auto py-8 "/>
+  <h2 class="text-gray-800 mx-auto text-center p-4">{blok.featuredImage.alt}</h2>
+  <div class="mt-6 flex border-t border-gray-900/10 pt-6"/>
+
+  <h2 class="text-2xl pb-4 text-gray-700 ">{blok.subtitle}</h2>
+  <p class="pb-4 text-lg italic">{blok.description}</p>
+  <div class="relative flex items-center gap-x-4">
+    <img src={blok.author.content.image.filename} alt="" class="h-10 w-10 rounded-full bg-gray-50" />
+    <div class="text-sm leading-6">
+      <p class="font-semibold text-gray-900">
+        <a href={blok.author.full_slug}>
+          <span class="absolute inset-0" />
+          By {blok.author.content.name}
+        </a>
+      </p>
+      <p class="text-gray-600">{blok.author.content.role}</p>
+    </div>
+  </div>
+
+
+  <div class="mt-6 flex border-t border-gray-900/10 py-6"/>
+  <div class="prose min-w-full prose-zinc">
+<Fragment set:html={content}/>
+</div>
 </article>

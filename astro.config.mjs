@@ -13,6 +13,7 @@ export default defineConfig({
   integrations: [ storyblok({
     accessToken: env.STORYBLOK_TOKEN,
     components: {
+      team: 'storyblok/TeamPage',
       blogPost: 'storyblok/BlogPost',
       blogPostList: 'storyblok/BlogPostList',
       page: 'storyblok/Page',

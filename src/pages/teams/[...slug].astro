@@ -1,16 +1,19 @@
 ---
 import { useStoryblokApi } from '@storyblok/astro'
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import RichTextRenderer from "@storyblok/astro/RichTextRenderer.astro";
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const sbApi = useStoryblokApi();
 
   const { data } = await sbApi.get("cdn/stories", {
-    content_type: "blogPost",
+    content_type: "team",
     version: import.meta.env.DEV ? "draft" : "published",
   });
-S
+
+  console.log(data)
+
   const stories = Object.values(data.stories);
 
   return stories.map((story) => {
@@ -22,14 +25,14 @@ S
 
 const sbApi = useStoryblokApi();
 const { slug } = Astro.params;
-const { data } = await sbApi.get(`cdn/stories/blog/${slug}`, {
+const { data } = await sbApi.get(`cdn/stories/teams/${slug}`, {
   version: import.meta.env.DEV ? "draft" : "published",
-  resolve_relations: "blogPost.author",
+  resolve_relations: "team.members",
 });
 
 const story = data.story;
 ---
 
-<BaseLayout title="Blog">
+<BaseLayout title="Team">
   <StoryblokComponent blok={story.content} />
 </BaseLayout>
