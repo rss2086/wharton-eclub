@@ -1,15 +1,45 @@
 ---
 import { storyblokEditable, renderRichText } from '@storyblok/astro'
-const { blok } = Astro.props
+const { blok, slug} = Astro.props
 // const blok = story.content
 const content = renderRichText(blok.content)
 const author = blok.author
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
 
 import { Image } from 'astro:assets';
+import Header from '../components/teams/Header.astro'
 // console.log(blok.featuredImage.filename)
 ---
-
+<div class="bg-white px-6 pt-0 md:py-20 py-12 lg:px-8">
+  <div class="pb-12 max-w-7xl mx-auto">
+    <div>
+      <nav class="sm:hidden" aria-label="Back">
+        <a href="/" class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
+          <svg class="-ml-1 mr-1 h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
+          </svg>
+          Back
+        </a>
+      </nav>
+      <nav class="hidden sm:flex" aria-label="Breadcrumb">
+        <ol role="list" class="flex items-center space-x-4">
+          <li>
+            <div class="flex">
+              <a href="/blog" class="text-sm font-medium text-gray-500 hover:text-gray-700">Blog</a>
+            </div>
+          </li>
+          <li>
+            <div class="flex items-center">
+              <svg class="h-5 w-5 flex-shrink-0 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
+              </svg>
+              <a href=`/blog/${slug}` class="ml-4 text-sm font-medium text-gray-500 hover:text-gray-700">{slug}</a>
+            </div>
+          </li>
+        </ol>
+      </nav>
+    </div>
+  </div>
 <article {...storyblokEditable(blok)} class="rounded-lg max-w-4xl mx-auto lg:py-20 sm:py-24 px-8 bg-white z-10">
   <!-- <h4 class="py-4">{new Date(story.created_at).toLocaleDateString("en-US", {dateStyle: "full"})}</h4> -->
   <h1 class="text-5xl font-sans font-bold pb-8 text-center">{blok.title}</h1>

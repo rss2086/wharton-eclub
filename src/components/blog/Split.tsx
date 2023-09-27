@@ -79,7 +79,7 @@ export default function Split({featuredPosts}: {featuredPosts: BlogPost[]}) {
                 <div className="flex">
                   <a
                     href={featuredPost.full_slug}
-                    className="text-sm font-semibold leading-6 text-indigo-600"
+                    className="text-sm font-semibold leading-6 text-[#026cbf]"
                     aria-describedby="featured-post"
                   >
                     Continue reading <span aria-hidden="true">&rarr;</span>

@@ -92,8 +92,8 @@ const { View } = useLottie(options);
           <img></img>
           <div className="mt-10 flex items-center gap-x-6">
             <a
-              href="#"
-              className=" mb-12 rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              href="https://groups.wharton.upenn.edu/student_community?club_id=11514"
+              className="mb-12 rounded-md bg-[#990000] px-7 py-5 text-lg font-semibold text-white shadow-sm hover:bg-[#c5093b] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#110f5b]"
             >
               Join Now
             </a>
