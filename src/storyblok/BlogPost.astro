@@ -4,9 +4,12 @@ const { blok } = Astro.props
 // const blok = story.content
 const content = renderRichText(blok.content)
 const author = blok.author
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
+
 import { Image } from 'astro:assets';
 // console.log(blok.featuredImage.filename)
 ---
+
 <article {...storyblokEditable(blok)} class="rounded-lg max-w-4xl mx-auto lg:py-20 sm:py-24 px-8 bg-white z-10">
   <!-- <h4 class="py-4">{new Date(story.created_at).toLocaleDateString("en-US", {dateStyle: "full"})}</h4> -->
   <h1 class="text-5xl font-sans font-bold pb-8 text-center">{blok.title}</h1>

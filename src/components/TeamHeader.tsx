@@ -11,49 +11,49 @@ import {
 } from '@heroicons/react/24/outline'
 
 const teams = [
-  { name: 'Education', description: 'Educational initiatives and workshops', href: 'teams/education', icon: ChartPieIcon },
+  { name: 'Education', description: 'Educational initiatives and workshops', href: '/teams/education', icon: ChartPieIcon },
   {
     name: 'Marketing and Communications',
     description: 'Promotion and public relations',
-    href: 'teams/marketing-and-communications',
+    href: '/teams/marketing-and-communications',
     icon: SquaresPlusIcon,
   },
   {
     name: 'Treks',
     description: 'Organizing entrepreneurial journeys',
-    href: 'teams/treks',
+    href: '/teams/treks',
     icon: CursorArrowRaysIcon,
   },
-  { name: 'Careers', description: 'Career guidance and opportunities', href: 'teams/careers', icon: ArrowPathIcon },
-  { name: 'External Relations', description: 'Building relationships with external entities', href: 'teams/external-relations', icon: FingerPrintIcon },
+  { name: 'Careers', description: 'Career guidance and opportunities', href: '/teams/careers', icon: ArrowPathIcon },
+  { name: 'External Relations', description: 'Building relationships with external entities', href: '/teams/external-relations', icon: FingerPrintIcon },
   {
     name: 'Chief of Staff',
     description: 'Overseeing operations and strategy',
-    href: 'teams/chief-of-staff',
+    href: '/teams/chief-of-staff',
     icon: DocumentChartBarIcon,
   },
   {
     name: 'DEI',
     description: 'Promoting diversity, equity, and inclusion',
-    href: 'teams/dei',
+    href: '/teams/dei',
     icon: DocumentChartBarIcon,
   },
   {
     name: 'Finance',
     description: 'Managing finances and fundraising',
-    href: 'teams/finance',
+    href: '/teams/finance',
     icon: DocumentChartBarIcon,
   },
   {
     name: 'Social and Community',
     description: 'Organizing social events and building community',
-    href: 'teams/social-and-community',
+    href: '/teams/social-and-community',
     icon: DocumentChartBarIcon,
   },
   {
     name: 'Startup Week',
     description: 'Organizing a week-long startup event',
-    href: 'teams/startup-week',
+    href: '/teams/startup-week',
     icon: DocumentChartBarIcon,
   },
 ]

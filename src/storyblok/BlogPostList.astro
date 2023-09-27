@@ -185,18 +185,6 @@ const { blok } = Astro.props
 ---
 <FeaturedPosts featuredPosts={featuredBlogPosts}/>
 <Split featuredPosts={nonFeaturedBlogPosts}/>
-<Featured />
 <ul {...storyblokEditable(blok)} class="prose max-w-lg mx-auto">
-
-
-<!-- 
-  {posts.map(post => (
-    <li>
-      <time>{post.date}</time>
-      <br />
-      <a href={post.slug}>{post.title}</a>
-      <p>{post.description}</p>
-    </li>
-  ))} -->
 </ul>
 <Contact/>
