@@ -64,7 +64,7 @@ const { View } = useLottie(options);
   return (
     <div className="relative isolate overflow-hidden bg-white">
       <svg
-        className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        className="absolute inset-0 -z-10 h-full w-full bg-white stroke-white/10 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
       >
         <defs>
@@ -81,14 +81,15 @@ const { View } = useLottie(options);
         </defs>
         <rect width="100%" height="100%" strokeWidth={0} fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
       </svg>
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-12">
-        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
+      <div className=" mx-auto max-w-7xl px-6 pb-24 sm:pt-24 lg:flex lg:px-8">
+        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-24">
           <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-          Welcome to eClub: Wharton's largest student-run entrepreneurship and innovation community.
+          Welcome to eClub. 
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">Wharton's largest student-run entrepreneurship and innovation community.</p>
+          {/* <p className="mt-6 text-lg leading-8 text-gray-600">
             Join us to make Wharton the best business school for entrepreneurship and innovation.
-          </p>
+          </p> */}
           <img></img>
           <div className="mt-10 flex items-center gap-x-6">
             <a
@@ -99,12 +100,9 @@ const { View } = useLottie(options);
             </a>
           </div>
         </div>
-        <div
-        className={"w-full mx-auto mt-16 flex max-w-2xl lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32"}>
-      <motion.div className='w-full max-w-2xl sm:invisible lg:visible' initial={{opacity:0.6, scale:0.2, y:800}} animate={{opacity:1, scale: 1, y:-50}} transition={{duration:1}}>
+      <motion.div className='md:ml-24 mt-24 max-w-2xl md:h-[35rem] w-full' initial={{opacity:0.9, scale:0.1, y:800}} animate={{opacity:[0.9,1,1], scale: [0.1,0.9,1.1], y:[800,-1000,-120]}} transition={{duration:2.5, times:[0,0.3,1]}}>
               {View}
       </motion.div>
-        </div>
       </div>
     </div>
   )
