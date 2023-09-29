@@ -6,6 +6,7 @@ import NavBar from '../components/TopNavbar.tsx'
 
 const { title } = Astro.props;
 import Footer from '../components/Footer';
+import { Analytics } from '@vercel/analytics/react';
 ---
 
 <!doctype html>
@@ -18,7 +19,8 @@ import Footer from '../components/Footer';
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<bod class="">
+	<body class="">
+		<Analytics client:only/>
 		<NavBar client:load/>
 		<div class="pt-20"/>
 		<slot/>
