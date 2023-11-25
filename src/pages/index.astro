@@ -12,17 +12,25 @@ import Calendar from '../components/Calendar';
 import Timeline from '../components/Timeline';
 
 import Blog from '../components/Blog';
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/events/home-events", {
+  version: import.meta.env.DEV ? "draft" : "published",
+  resolve_relations: ["featuredEvent.featuredEvent", "eventList.events"],
+});
+// console.log(data)
+const content = data.story.content;
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Wharton EClub">
 	<main>
 		<HeroSection client:load/>
+		<Features/>
 		<Header/>
 		<Sponsored/>
 		<!-- <Subscribe/> -->
-		<Features/>
-
-
-		<Calendar client:load/>
+		<StoryblokComponent blok={content} />
 	</main>
 </Layout>

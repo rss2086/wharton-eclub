@@ -1,0 +1,164 @@
+---
+const { blok, slug } = Astro.props
+// const blok = story.content
+// const content = renderRichText(blok.content)
+// const author = blok.author
+import { Image } from 'astro:assets';
+// console.log(blok.featuredImage.filename)
+import MeetTheTeam from '../components/teams/MeetTheTeam.astro'
+import Header from '../components/teams/Header.astro'
+import CalendarIcon from '@heroicons/react/24/solid/CalendarIcon';
+import MapPinIcon from '@heroicons/react/24/solid/MapPinIcon';
+// for (const member of blok.team) {
+//   console.log(member)
+// }
+
+const meetings = [
+  {
+    id: 1,
+    date: 'January 10th, 2022',
+    time: '5:00 PM',
+    datetime: '2022-01-10T17:00',
+    name: 'Leslie Alexander',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    location: 'Starbucks',
+    description: "Non veniam elit magna occaecat irure deserunt cupidatat. Cupidatat et aliquip excepteur esse qui sint commodo ipsum laboris aute anim. Eu elit tempor voluptate sunt exercitation id veniam ut duis consectetur eu. Commodo duis et ut laboris ad exercitation."
+  },
+  {
+    id: 1,
+    date: 'January 10th, 2022',
+    time: '5:00 PM',
+    datetime: '2022-01-10T17:00',
+    name: 'Leslie Alexander',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    location: 'Starbucks',
+    description: "Non veniam elit magna occaecat irure deserunt cupidatat. Cupidatat et aliquip excepteur esse qui sint commodo ipsum laboris aute anim. Eu elit tempor voluptate sunt exercitation id veniam ut duis consectetur eu. Commodo duis et ut laboris ad exercitation."
+  },
+  {
+    id: 1,
+    date: 'January 10th, 2022',
+    time: '5:00 PM',
+    datetime: '2022-01-10T17:00',
+    name: 'Leslie Alexander',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    location: 'Starbucks',
+    description: "Non veniam elit magna occaecat irure deserunt cupidatat. Cupidatat et aliquip excepteur esse qui sint commodo ipsum laboris aute anim. Eu elit tempor voluptate sunt exercitation id veniam ut duis consectetur eu. Commodo duis et ut laboris ad exercitation."
+  },
+  // {
+  //   id: 1,
+  //   date: 'January 10th, 2022',
+  //   time: '5:00 PM',
+  //   datetime: '2022-01-10T17:00',
+  //   name: 'Leslie Alexander',
+  //   imageUrl:
+  //     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  //   location: 'Starbucks',
+  // },
+  // {
+  //   id: 1,
+  //   date: 'January 10th, 2022',
+  //   time: '5:00 PM',
+  //   datetime: '2022-01-10T17:00',
+  //   name: 'Leslie Alexander',
+  //   imageUrl:
+  //     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  //   location: 'Starbucks',
+  // },
+  // {
+  //   id: 1,
+  //   date: 'January 10th, 2022',
+  //   time: '5:00 PM',
+  //   datetime: '2022-01-10T17:00',
+  //   name: 'Leslie Alexander',
+  //   imageUrl:
+  //     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  //   location: 'Starbucks',
+  // },
+  // More meetings...
+]
+
+const {events} = blok
+const {content} = events[0]
+/*
+content format
+{
+  _uid: '71a62c91-250b-40b0-a014-b91d3b4695a1',
+  date: '',
+  image: {
+    id: 238946,
+    alt: '',
+    name: '',
+    focus: '',
+    title: '',
+    source: '',
+    filename: 'https://a-us.storyblok.com/f/1016697/1024x1024/84ec03a646/pheremone.png',
+    copyright: '',
+    fieldtype: 'asset',
+    meta_data: {},
+    is_external_url: false
+  },
+  title: 'Startup Week Begins',
+  content: { type: 'doc', content: [ [Object] ] },
+  Location: 'On Campus',
+  end_time: '2023-10-30 00:00',
+  component: 'event',
+  start_time: '2023-10-24 00:00',
+  description: 'Startup Week is an annual event where we introduce speakers of all kinds for entrepreneruship.',
+  _editable: '<!--#storyblok#{"name": "event", "space": "1016697", "uid": "71a62c91-250b-40b0-a014-b91d3b4695a1", "id": "470905"}-->'
+}
+*/
+// console.log(blok)
+---
+<div class="mx-auto max-w-7xl px-6 lg:px-8 py-32">
+  <h1 class='text-4xl font-bold text-center'>Upcoming Events</h1>
+  <div class="lg:grid lg:grid-cols-8 lg:gap-x-16">
+    <ol class="mt-4 divide-y divide-gray-300 text-sm leading-6 lg:col-span-7 xl:col-span-8">
+      {events.map((event) => (
+        <li key={event.content._uid} class="relative flex space-x-6 py-6 xl:static">
+          <div class='flex-auto flex flex-row'>
+            <div>
+              <h1 class='text-5xl font-bold text-left'>{new Date(event.content.start_time).getDate()}</h1>
+              <h4 class='text-md font-bold pl-1'>{new Date(event.content.start_time).toLocaleString('default', { month: 'long' })}</h4>
+              
+            </div>
+            <div class="pl-10">
+              <h3 class="font-semibold text-gray-900 text-lg">{event.content.title}</h3>
+              <p class="text-gray-500 mt-2 mb-2 text-md">{event.content.description}</p>
+              <a href={"/" + event.full_slug} class="underline font-bold text-sm mb-2"> Learn More </a>
+              <dl class="mt-4 flex flex-col text-gray-500 xl:flex-row">
+                <div class="flex items-start space-x-3">
+                  <dt class="mt-0.5">
+                    <span class="sr-only">Date</span>
+                    <CalendarIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                  </dt>
+                  <dd>
+                    <time datetime={event.content.start_time} >
+                      {new Date(event.content.start_time).toLocaleString('default', { hour: 'numeric', minute: 'numeric', hour12: true })} to {new Date(event.content.end_time).toLocaleString('default', { hour: 'numeric', minute: 'numeric', hour12: true })}
+                    </time>
+                  </dd>
+                </div>
+                
+                <div class="mt-2 flex items-start space-x-3 xl:ml-3.5 xl:mt-0 xl:border-l xl:border-gray-400 xl:border-opacity-50 xl:pl-3.5">
+                  <dt class="mt-0.5 ">
+                    <span class="sr-only">Location</span>
+                    <MapPinIcon className="h-5 w-5 text-gray-400 " aria-hidden="true" />
+                  </dt>
+                  <dd >{event.content.Location}</dd>
+                </div>
+              </dl>
+
+            </div>
+            
+          </div>
+        </li>
+
+      ))}
+    </ol>
+  </div>
+</div>
+<!-- <Header blok={blok} slug={slug} /> -->
+<!-- <Image src={blok.featuredImage.filename} alt="A description of my image" width={1600} height={900} class="aspect-[16/9] mx-auto md:max-w-7xl max-h-[65rem] "/>
+<MeetTheTeam Team={teamMembers} /> -->

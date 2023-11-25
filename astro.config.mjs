@@ -16,7 +16,10 @@ export default defineConfig({
       team: 'storyblok/TeamPage',
       blogPost: 'storyblok/BlogPost',
       blogPostList: 'storyblok/BlogPostList',
-      page: 'storyblok/Page'
+      page: 'storyblok/Page',
+      eventList: "storyblok/EventList",
+      featuredEvent: "storyblok/FeaturedEvent",
+      event: "storyblok/Event",
     },
     apiOptions: {
       // Choose your Storyblok space region
@@ -29,7 +32,7 @@ export default defineConfig({
       https: true
     }
   },
-  output: "server",
+  output: "hybrid",
   adapter: vercel({
     webAnalytics: {
       enabled:true

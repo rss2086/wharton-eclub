@@ -1,7 +1,7 @@
 ---
 import { storyblokEditable } from '@storyblok/astro'
 import { useStoryblokApi } from '@storyblok/astro'
-import Split from '../components/blog/Split';
+import Split from '../components/blog/Split.astro';
 import Featured from '../components/blog/Featured.astro';
 import FeaturedPosts from '../components/blog/FeaturedPosts.astro';
 import Contact from '../components/blog/Contact.astro';
@@ -51,9 +51,10 @@ export interface BlogPost {
   translated_slugs: any;
 }
 
-const featuredBlogPosts = data.stories.filter((story:BlogPost) => story.content.isFeatured === true)
-const nonFeaturedBlogPosts = data.stories.filter((story:BlogPost) => story.content.isFeatured === false)
+const featuredBlogPosts = data.stories.filter((story:BlogPost) => story?.content?.isFeatured === true) || []
+const nonFeaturedBlogPosts = data.stories.filter((story:BlogPost) => story?.content?.isFeatured === false) || []
 
+// console.log(nonFeaturedBlogPosts)
 const { blok } = Astro.props
 ---
 <FeaturedPosts featuredPosts={featuredBlogPosts}/>

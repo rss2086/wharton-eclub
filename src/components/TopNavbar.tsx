@@ -7,6 +7,7 @@ import Logo from '../eclub1.png'
 const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Blog', href: '/blog' },
+    { name: 'Events', href: '/events' },
   ]
   
   export default function NavBar() {

@@ -120,7 +120,7 @@ export default function TeamHeader() {
                 <p className="rounded-full bg-[#110f5b]/10 px-2.5 py-1.5 text-xs font-semibold text-[#026cbf]">We'd love to help.</p>
               </div>
               <p className="mt-2 text-sm leading-6 text-gray-600">
-                Reach out to us with the contact form below and we'll get back to you as soon as possible.
+                Reach out to us!
               </p>
             </div>
           </div>

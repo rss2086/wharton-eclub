@@ -2,17 +2,18 @@
 import { useStoryblokApi } from "@storyblok/astro";
 import StoryblokComponent from "@storyblok/astro/StoryblokComponent.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import BlogHeader from "../../components/blog/BlogHeader.astro";
+import EventsHeader from "../../components/events/EventsHeader.astro";
 
 const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get("cdn/stories/blog", {
+const { data } = await storyblokApi.get("cdn/stories/events", {
   version: import.meta.env.DEV ? "draft" : "published",
+  resolve_relations: ["featuredEvent.featuredEvent", "eventList.events"],
 });
 // console.log(data)
 const content = data.story.content;
 ---
 
-<BaseLayout title="Blog - Wharton EClub">
-  <BlogHeader />
+<BaseLayout title="Events - Wharton EClub">
+  <!-- <EventsHeader /> -->
   <StoryblokComponent blok={content} />
 </BaseLayout>
