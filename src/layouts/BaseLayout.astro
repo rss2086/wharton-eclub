@@ -2,21 +2,28 @@
 interface Props {
 	title: string;
 }
+import NavBar from '../components/TopNavbar.tsx'
 
 const { title } = Astro.props;
+import Footer from '../components/Footer';
+import { Analytics } from '@vercel/analytics/react';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+		<meta name="description" content={`Wharton EClub's ${title} Page `} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
+	<body class="">
+		<Analytics client:only/>
+		<NavBar client:load/>
+		<div class="pt-20"/>
+		<slot/>
+		<Footer/>
 	</body>
 </html>

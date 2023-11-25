@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/BaseLayout.astro';
 import Card from '../components/Card.astro';
 import HeroSection from '../components/HeroSection.tsx';
 import Subscribe from '../components/Subscribe.astro';
@@ -10,20 +10,27 @@ import Pricing from '../components/Pricing.astro';
 import Sponsored from '../components/Sponsored.astro';
 import Calendar from '../components/Calendar';
 import Timeline from '../components/Timeline';
-import Footer from '../components/Footer';
+
 import Blog from '../components/Blog';
+import { useStoryblokApi } from '@storyblok/astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories/events/home-events", {
+  version: import.meta.env.DEV ? "draft" : "published",
+  resolve_relations: ["featuredEvent.featuredEvent", "eventList.events"],
+});
+// console.log(data)
+const content = data.story.content;
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Wharton EClub">
 	<main>
 		<HeroSection client:load/>
-		<Subscribe/>
+		<Features/>
 		<Header/>
 		<Sponsored/>
-		<Blog/>
-		<Calendar client:load/>
-		<!-- <Timeline client:load/> -->
-		<People/>
-		<Footer/>
+		<!-- <Subscribe/> -->
+		<StoryblokComponent blok={content} />
 	</main>
 </Layout>

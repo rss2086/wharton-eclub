@@ -1,0 +1,19 @@
+---
+const { blok, slug } = Astro.props
+// const blok = story.content
+// const content = renderRichText(blok.content)
+// const author = blok.author
+import { Image } from 'astro:assets';
+// console.log(blok.featuredImage.filename)
+import MeetTheTeam from '../components/teams/MeetTheTeam.astro'
+import Header from '../components/teams/Header.astro'
+// for (const member of blok.team) {
+//   console.log(member)
+// }
+const teamMembers = blok?.members
+// console.log(teamMembers[0].content.companyLink.url)
+// console.log(blok)
+---
+<Header blok={blok} slug={slug} />
+<Image src={blok.featuredImage.filename} alt="A description of my image" width={1600} height={900} class="aspect-[16/9] mx-auto md:max-w-7xl max-h-[65rem] "/>
+<MeetTheTeam Team={teamMembers} />
