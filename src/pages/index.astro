@@ -10,7 +10,6 @@ import Pricing from '../components/Pricing.astro';
 import Sponsored from '../components/Sponsored.astro';
 import Calendar from '../components/Calendar';
 import Timeline from '../components/Timeline';
-
 import Blog from '../components/Blog';
 import { useStoryblokApi } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
@@ -20,17 +19,17 @@ const { data } = await storyblokApi.get("cdn/stories/events/home-events", {
   version: import.meta.env.DEV ? "draft" : "published",
   resolve_relations: ["featuredEvent.featuredEvent", "eventList.events"],
 });
-// console.log(data)
+console.log(data)
 const content = data.story.content;
 ---
 
 <Layout title="Wharton EClub">
 	<main>
-		<HeroSection client:load/>
+		<HeroSection client:only/>
+		<StoryblokComponent blok={content} />
 		<Features/>
 		<Header/>
 		<Sponsored/>
-		<!-- <Subscribe/> -->
-		<StoryblokComponent blok={content} />
+		<Subscribe/>
 	</main>
 </Layout>
