@@ -65,10 +65,10 @@ const teams = [
 export default function TeamHeader() {
   const [isShowing, setIsShowing] = useState(false)
 
-  function conditionallyLeave(event){
+  function conditionallyLeave(event: React.MouseEvent<HTMLElement>){
     // get mouse position
     // if mouse is not in the popover, then leave
-    var bounds = event.target.getBoundingClientRect();
+    var bounds = event.currentTarget.getBoundingClientRect();
     var middle = (bounds.left + bounds.right) / 2;
     var x = event.clientX - middle;
     var y = event.clientY - bounds.bottom;
@@ -84,11 +84,13 @@ export default function TeamHeader() {
         <span>Our Team</span>
         <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
       </Popover.Button>
+      <div 
+          onMouseEnter={() => setIsShowing(true)}
+          onMouseLeave={() => setIsShowing(false)}
+        >
       <Transition
         as={Fragment}
         show={isShowing}
-        onMouseEnter={() => setIsShowing(true)}
-        onMouseLeave={() => setIsShowing(false)}
         enter="transition ease-out duration-200"
         enterFrom="opacity-0 translate-y-1"
         enterTo="opacity-100 translate-y-0"
@@ -96,20 +98,21 @@ export default function TeamHeader() {
         leaveFrom="opacity-100 translate-y-0"
         leaveTo="opacity-0 translate-y-1"
       >
+
         <Popover.Panel className="absolute left-1/2 z-10 mt-5 flex w-screen max-w-max -translate-x-1/2 px-4">
           <div className="w-screen max-w-xl flex-auto overflow-hidden rounded-3xl bg-white text-sm leading-6 shadow-lg ring-1 ring-gray-900/5 lg:max-w-3xl">
             <div className="grid grid-cols-1 gap-x-6 gap-y-1 p-4 lg:grid-cols-2 ">
               {teams.map((item) => (
-                <div key={item.name} className="group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50">
-                  <div className="mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                    <item.icon className="h-6 w-6 text-gray-600 group-hover:text-[#026cbf]" aria-hidden="true" />
+                <div key={item.name} className={`group relative flex gap-x-6 rounded-lg p-4 hover:bg-gray-50 ${item.fullWidth ? 'col-span-2' : ''} ${item.isLeadership ? 'bg-blue-50 hover:bg-blue-100' : ''}`}>
+                  <div className={`mt-1 flex h-11 w-11 flex-none items-center justify-center rounded-lg ${item.isLeadership ? 'bg-blue-100 group-hover:bg-blue-200' : 'bg-gray-50 group-hover:bg-white'}`}>
+                    <item.icon className={`h-6 w-6 ${item.isLeadership ? 'text-blue-600 group-hover:text-blue-700' : 'text-gray-600 group-hover:text-[#026cbf]'}`} aria-hidden="true" />
                   </div>
                   <div>
-                    <a href={item.href} className="font-semibold text-gray-900">
+                    <a href={item.href} className={`font-semibold ${item.isLeadership ? 'text-blue-900' : 'text-gray-900'}`}>
                       {item.name}
                       <span className="absolute inset-0" />
                     </a>
-                    <p className="mt-1 text-gray-600">{item.description}</p>
+                    <p className={`mt-1 ${item.isLeadership ? 'text-blue-700' : 'text-gray-600'}`}>{item.description}</p>
                   </div>
                 </div>
               ))}
@@ -126,6 +129,7 @@ export default function TeamHeader() {
           </div>
         </Popover.Panel>
       </Transition>
+      </div>
     </Popover>
   )
 }

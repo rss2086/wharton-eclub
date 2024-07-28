@@ -3,7 +3,6 @@ import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import TeamHeader from './TeamHeader'
 import Logo from '../eclub1.png'
-import { ModeToggle } from './ModeToggle'
 
 const navigation = [
     { name: 'Home', href: '/' },
@@ -46,7 +45,6 @@ const navigation = [
             <TeamHeader />
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <ModeToggle />
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
