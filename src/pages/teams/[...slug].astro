@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 
   // console.log(data)
 
-  const stories = Object.values(data.stories);
+  const stories = Object.values(data.stories) as { slug: string }[];
 
   return stories.map((story) => {
     return {
