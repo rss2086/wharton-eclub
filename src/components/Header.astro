@@ -1,22 +1,28 @@
+---
+import Image from 'astro:assets';
+import eclubLandscape1 from '../images/eclub-landscape-1.jpg';
+import eclubLandscape2 from '../images/eclub-landscape-2.png';
+import eclubPortrait1 from '../images/eclub-portrait-1.jpg';
+import eclubPortrait2 from '../images/eclub-portrait-2.jpg';
+---
+
 <div class="bg-white py-24 sm:py-32">
 	<div class="mx-auto max-w-7xl px-6 lg:px-8">
 	  <div class="mx-auto grid max-w-2xl grid-cols-1 items-start gap-x-24 gap-y-16 sm:gap-y-24 lg:mx-0 lg:max-w-none lg:grid-cols-2">
 		<div class="columns-2 lg:columns-2 gap-4">
-			<img class="w-full aspect-video mb-6" src="https://picsum.photos/500/300?random=1" />
-			<img class="w-full aspect-[4/6] mb-6" src="https://picsum.photos/500/300?random=2" />
-			<img class="w-full aspect-square mb-6" src="https://picsum.photos/500/300?random=4" />
-			<img class="w-full aspect-square mb-6" src="https://picsum.photos/500/300?random=5" />
-			<img class="w-full aspect-[4/6] mb-6" src="https://picsum.photos/500/300?random=6" />
-			<img class="w-full aspect-video mb-6" src="https://picsum.photos/500/300?random=3" />
+			<img alt="test" class="w-full aspect-video mb-6" src={eclubLandscape1.src} />
+			<img class="w-full aspect-square mb-6" src={eclubPortrait1.src} />
+			<img class="w-full aspect-square mb-6" src={eclubPortrait2.src} />
+			<img class="w-full aspect-video mb-6" src={eclubLandscape2.src} />
 		  </div>
 		<div>
 		  <div class="text-base leading-7 text-gray-700 lg:max-w-lg">
 			<p class="text-base font-semibold leading-7 text-[#026cbf]">Wharton Entrepreneurship Club</p>
 			<h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Fostering Innovation and Entrepreneurship at Wharton</h1>
 			<div class="max-w-xl">
-			  <p class="mt-6">The Wharton Entrepreneurship Club is a student-run organization dedicated to promoting entrepreneurship and innovation within the Wharton community. We provide resources, support, and networking opportunities for students interested in starting their own businesses or working in startup environments.</p>
-			  <p class="mt-8">Our club is committed to fostering a vibrant entrepreneurial ecosystem at Wharton. We organize a variety of events and initiatives, including startup treks, speaker series, workshops, and mentorship programs, to inspire and educate future entrepreneurs.</p>
-			  <p class="mt-8">We believe that entrepreneurship is not just about starting companies, but also about adopting an entrepreneurial mindset. This mindset, characterized by innovation, risk-taking, and a drive to create value, is applicable across all career paths and industries.</p>
+			  <p class="mt-6">The Wharton Entrepreneurship Club is a thriving MBA student & alumni community of current and future founders, joiners, and investors trying to create lasting positive change. We're globally connected and bonded together by our excitement about early-stage startups.</p>
+			  <p class="mt-8">We're committed to creating and fostering an entrepreneurial ecosystem at Wharton. We organize a variety of events and initiatives, including startup treks, speaker series, workshops, co-founder matching, and other mentorship programs, to inspire and educate future founders and leaders.</p>
+				
 			</div>
 		  </div>
 		  <dl class="mt-10 grid grid-cols-2 gap-8 border-t border-gray-900/10 pt-10 sm:grid-cols-4">

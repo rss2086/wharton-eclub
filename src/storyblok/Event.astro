@@ -54,7 +54,7 @@ const image = blok?.image?.filename || "https://placekitten.com/800/800"
     <img src={blok?.author?.content?.image?.filename} alt="" class="h-10 w-10 rounded-full bg-gray-50" />
   </div>
   <hr class="mb-8 border-gray-300"/>
-  <div class="prose min-w-full prose-zinc">
+  <div class="prose">
 <Fragment set:html={content}/>
 </div>
 </article>

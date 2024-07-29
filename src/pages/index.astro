@@ -13,6 +13,7 @@ import Timeline from '../components/Timeline';
 import Blog from '../components/Blog';
 import { useStoryblokApi } from '@storyblok/astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro';
+import ClubLeadership from '@/components/LeadershipTeam';
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get("cdn/stories/events/home-events", {
@@ -26,15 +27,17 @@ const content = data.story.content;
 <Layout title="Wharton EClub">
 	<main>
 		<HeroSection client:only>
-			<div slot="fallback" class="relative overflow-hidden bg-gradient-to-br from-red-900 via-red-950 to-blue-950 text-white min-h-screen">
+			<div slot="fallback" class="relative overflow-hidden bg-gradient-to-br from-zinc-900 via-zinc-950 to-blue-950 text-white min-h-screen">
 				<div class="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] z-0"></div>
 				<div class="absolute inset-0 opacity-20 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CjxyZWN0IHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgZmlsbD0iIzE3MjU0YyI+PC9yZWN0Pgo8Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjQiPjwvY2lyY2xlPgo8Y2lyY2xlIGN4PSIwIiBjeT0iMzAiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNCI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjYwIiBjeT0iMzAiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNCI+PC9jaXJjbGU+CjxjaXJjbGUgY3g9IjMwIiBjeT0iMCIgcj0iMiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC40Ij48L2NpcmNsZT4KPGNpcmNsZSBjeD0iMzAiIGN5PSI2MCIgcj0iMiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC40Ij48L2NpcmNsZT4KPC9zdmc+')] bg-repeat z-0"></div>
 			</div>
 		</HeroSection>
 		<Header/>
+		<ClubLeadership/>
+
+
 		<Features/>
 		<Sponsored/>
-		<StoryblokComponent blok={content} />
-		<Subscribe/>
+		<!-- <StoryblokComponent blok={content} /> -->
 	</main>
 </Layout>
