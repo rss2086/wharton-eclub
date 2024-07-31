@@ -23,7 +23,6 @@ export default function HeroSection() {
             transition={{ duration: 0.8 }}
           >
             <div className="flex justify-start items-center space-x-4">
-              {/* <img src={WhartonLogo.src} alt="Wharton Logo" className="h-12 w-auto" />  */}
               <img src={EClubLogo.src} alt="EClub Logo" className="h-16 w-auto invert" />
               </div>
             <h1 className=" max-w-lg text-4xl font-bold tracking-tight text-white sm:text-6xl pt-4">
@@ -58,19 +57,84 @@ export default function HeroSection() {
           className="absolute bottom-0 md:left-1/2 transform md:-translate-x-1/2 w-full max-w-sm lg:max-w-2xl"
           initial={{ y: '100%', opacity: 0 }}
           animate={{ 
-            y: ['100%', '10%'],
-            opacity: [0, 1, 1]
+            y: ['100%', '28%'],
+            opacity: [0, 1]
           }}
           transition={{ 
-            duration: 1.5, 
-            times: [0, 0.6, 1],
-            ease: ["easeOut", "easeIn"]
+            duration: 2, 
+            ease: "easeInOut",
+            y: {
+              type: "spring",
+              damping: 15,
+              stiffness: 100
+            },
+            opacity: {
+              duration: 1.5
+            }
           }}
         >
-          <div className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[900px] flex justify-center items-center">
-            <div className="w-full max-w-[400px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[900px]">
+          <div className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[900px] flex justify-center items-center relative">
+            {/* Speed lines */}
+            <motion.div 
+              className="absolute inset-0 overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.2 }}
+            >
+              {[...Array(50)].map((_, index) => (
+                <motion.div
+                  key={index}
+                  className="absolute bg-gradient-to-r from-zinc-300 to-zinc-500 sm:h-[500px] sm:w-[1px]  "
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    transform: `rotate(${75 + Math.random() * 30}deg)`,
+                  }}
+                  animate={{
+                    y: ['-100%', '100%'],
+                    opacity: [0, 0.7, 0],
+                    transition: {
+                      duration: 1.5 + Math.random(),
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: Math.random() * 2,
+                    },
+                  }}
+                />
+              ))}
+            </motion.div>
+
+            
+            {/* Rocket */}
+            <motion.div 
+              className="w-full max-w-[400px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[900px] relative z-10"
+              animate={{
+                y: [0, -20, 0],
+                rotate: [-2, 2, -2]
+              }}
+              transition={{
+                duration: 6,
+                ease: "easeInOut",
+                repeat: Infinity,
+                repeatType: "reverse"
+              }}
+            >
               {RocketAnimation}
-            </div>
+            </motion.div>
+            
+            {/* Glow effect */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-radial from-blue-500 to-transparent opacity-20 blur-2xl"
+              animate={{
+                scale: [1, 1.2, 1],
+                opacity: [0.2, 0.3, 0.2],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                repeatType: "reverse",
+              }}
+            />
           </div>
         </motion.div>
       </div>
