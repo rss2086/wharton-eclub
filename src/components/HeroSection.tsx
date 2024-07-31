@@ -79,12 +79,12 @@ export default function HeroSection() {
               className="absolute inset-0 overflow-hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 1, duration: 0.2 }}
+              transition={{ duration: 0.2 }}
             >
               {[...Array(50)].map((_, index) => (
                 <motion.div
                   key={index}
-                  className="absolute bg-gradient-to-r from-zinc-300 to-zinc-500 sm:h-[500px] sm:w-[1px]  "
+                  className="absolute bg-gradient-to-r from-zinc-300 to-zinc-500 sm:h-[500px] sm:w-[1px]"
                   style={{
                     left: `${Math.random() * 100}%`,
                     top: `${Math.random() * 100}%`,
@@ -121,20 +121,6 @@ export default function HeroSection() {
             >
               {RocketAnimation}
             </motion.div>
-            
-            {/* Glow effect */}
-            <motion.div
-              className="absolute inset-0 bg-gradient-radial from-blue-500 to-transparent opacity-20 blur-2xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.2, 0.3, 0.2],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                repeatType: "reverse",
-              }}
-            />
           </div>
         </motion.div>
       </div>
