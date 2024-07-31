@@ -11,7 +11,7 @@ const people = [
     email:'rohanss@wharton.upenn.edu'
   },
   {
-    name: 'Srineetha Kandula',
+    name: 'Srineetha Maddineni',
     role: 'Co-President',
     imageUrl: srineethaPicture,
     linkedinUrl: 'https://www.linkedin.com/in/srineethamaddineni/',
