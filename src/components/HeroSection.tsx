@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { useLottie } from "lottie-react";
 import rocket from "../small-rocket.json";
@@ -24,8 +23,8 @@ export default function HeroSection() {
           >
             <div className="flex justify-start items-center space-x-4">
               <img src={EClubLogo.src} alt="EClub Logo" className="h-16 w-auto invert" />
-              </div>
-            <h1 className=" max-w-lg text-4xl font-bold tracking-tight text-white sm:text-6xl pt-4">
+            </div>
+            <h1 className="max-w-lg text-4xl font-bold tracking-tight text-white sm:text-6xl pt-4">
               The home for entrepreneurship at <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-blue-400">Wharton</span>
             </h1>
             <p className="mt-6 text-xl leading-8 text-gray-300 md:text-3xl">
@@ -40,7 +39,7 @@ export default function HeroSection() {
               </a>
               <a
                 href="https://groups.wharton.upenn.edu/feeds?type=club&type_id=11514&tab=home"
-                className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-semibold text-white bg-opacity-10 bg-zinc-950 backdrop-filter backdrop-blur-lg rounded-md border border-white border-opacity-20 hover:bg-opacity-20 focus:outline-none  transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
+                className="inline-flex items-center justify-center px-6 py-3 text-base sm:text-lg font-semibold text-white bg-opacity-10 bg-zinc-950 backdrop-filter backdrop-blur-lg rounded-md border border-white border-opacity-20 hover:bg-opacity-20 focus:outline-none transition-all duration-300 shadow-lg hover:shadow-xl relative overflow-hidden"
               >
                 <span className="relative z-10">Events</span>
                 <div className="absolute inset-0 bg-blue-600 opacity-30 blur-xl"></div>
@@ -81,7 +80,7 @@ export default function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.2 }}
             >
-              {[...Array(50)].map((_, index) => (
+              {[...Array(20)].map((_, index) => (
                 <motion.div
                   key={index}
                   className="absolute bg-gradient-to-r from-zinc-300 to-zinc-500 sm:h-[500px] sm:w-[1px]"
@@ -104,16 +103,15 @@ export default function HeroSection() {
               ))}
             </motion.div>
 
-            
             {/* Rocket */}
             <motion.div 
               className="w-full max-w-[400px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[900px] relative z-10"
               animate={{
-                y: [0, -20, 0],
-                rotate: [-2, 2, -2]
+                y: [0, -10, 0],
+                rotate: [-1, 1, -1]
               }}
               transition={{
-                duration: 6,
+                duration: 4,
                 ease: "easeInOut",
                 repeat: Infinity,
                 repeatType: "reverse"

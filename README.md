@@ -1,54 +1,56 @@
-# Astro Starter Kit: Basics
+# Wharton Entrepreneurship Club Website
 
-```sh
-npm create astro@latest -- --template basics
-```
+This project is the official website for the Wharton Entrepreneurship Club, built with modern web technologies. We kindly ask that you do not reproduce or distribute any part of this project.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 🛠️ Technologies Used
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- [Astro](https://astro.build) - Static site generator with excellent performance
+- [Storyblok](https://www.storyblok.com) - Headless CMS for content management
+- [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework
+- [TypeScript](https://www.typescriptlang.org) - Type-safe JavaScript
+- [Bun](https://bun.sh) - JavaScript runtime & package manager
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
 
-## 🚀 Project Structure
+## 🚀 How to Run
 
-Inside of your Astro project, you'll see the following folders and files:
+To run the Wharton Entrepreneurship Club website locally, follow these steps:
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/your-username/wharton-entrepreneurship-club.git
+   cd wharton-entrepreneurship-club
+   ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+2. **Install dependencies:**
+   Make sure you have [Bun](https://bun.sh) installed. If not, you can install it by following the instructions on their website.
+   ```sh
+   bun install
+   ```
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+3. **Set up environment variables:**
+   Create a `.env` file in the root directory and add your Storyblok token:
+   ```sh
+   STORYBLOK_TOKEN=your_storyblok_token
+   ```
 
-Any static assets, like images, can be placed in the `public/` directory.
+4. **Run the development server:**
+   ```sh
+   bun run dev
+   ```
 
-## 🧞 Commands
+5. **Open your browser:**
+   Navigate to `http://localhost:3000` to see the website in action.
 
-All commands are run from the root of the project, from a terminal:
+6. **Build for production:**
+   To create an optimized production build, run:
+   ```sh
+   bun run build
+   ```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+7. **Preview the production build:**
+   You can preview the production build locally by running:
+   ```sh
+   bun run preview
+   ```
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Follow these steps, and you'll have the Wharton Entrepreneurship Club website running on your local machine!
